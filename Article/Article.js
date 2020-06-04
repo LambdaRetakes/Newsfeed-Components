@@ -87,8 +87,51 @@ const data = [
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
+let container = document.querySelector('.articles');
+
+articleFactory = (articleData) => {
+  let factoryBox = document.createElement('div');
+  
+  let articleH2 = document.createElement('h2');
+  articleH2.textContent = articleData.title;
+
+  let articleDate = document.createElement('p');
+  articleDate.textContent = articleData.date;
+
+  let articleContent1 = document.createElement('p');
+  articleContent1.textContent = articleData.firstParagraph
+  let articleContent2 = document.createElement('p');
+  articleContent2.textContent = articleData.secondParagraph
+  let articleContent3 = document.createElement('p');
+  articleContent3.textContent = articleData.thirdParagraph
+
+  let articleSpan = document.createElement('span');
+  articleSpan.classList.add('expandButton');
+  articleSpan.textContent = ('open')
+  articleSpan.addEventListener('click', () => {
+    container.classList.toggle('.article-open');
+  })
+
+  factoryBox.appendChild(articleH2);
+  factoryBox.appendChild(articleDate);
+  factoryBox.appendChild(articleContent1);
+  factoryBox.appendChild(articleContent2);
+  factoryBox.appendChild(articleContent3);
+  factoryBox.appendChild(articleSpan);
+  return factoryBox;
+};
+
+data.forEach((dataItem) => {
+  let newArticle = articleFactory(dataItem);
+  console.log(container);
+  console.log(newArticle);
+  container.appendChild(newArticle);
+  // parent.appendChild(newArticle);
+});
+
 
 /* Step 1: Write a component called 'articleMaker' to create an article. You want your component to return markup like the template below: 
+/*
 
   <div class="article">
     <h2>{title of the article}</h2>
