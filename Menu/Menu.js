@@ -11,12 +11,12 @@ let menuItems = [
 
 function menuMaker(menuArray) {
   const menu = document.createElement('div')
-  const list = document.createElement('ul')
-  const menuItems = menuArray.map(menuItem => document.createElement('li'))
+  let list = document.createElement('ul')
+  let menuItems = menuArray.map(menuItem => document.createElement('li'))
 
   menu.classList.add('menu')
 
-  const menuButton = document.querySelector('.menu-button')
+  let menuButton = document.querySelector('.menu-button')
   menuButton.addEventListener('click', e => {
     menu.classList.toggle('menu--open');
   })

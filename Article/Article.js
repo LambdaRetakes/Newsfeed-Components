@@ -107,6 +107,8 @@ let container = document.querySelector('.articles');
 
 articleFactory = (articleData) => {
   let factoryBox = document.createElement('div');
+  factoryBox.classList.add('article');
+
   
   let articleH2 = document.createElement('h2');
   articleH2.textContent = articleData.title;
@@ -126,7 +128,7 @@ articleFactory = (articleData) => {
   articleSpan.classList.add('expandButton');
   articleSpan.textContent = ('open')
   articleSpan.addEventListener('click', () => {
-    container.classList.toggle('.article-open');
+    factoryBox.classList.toggle('article-open');
   })
 
   factoryBox.appendChild(articleH2);
